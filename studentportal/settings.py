@@ -25,11 +25,7 @@ SECRET_KEY = 'django-insecure-v3mfmk490129g+h75fp6_ihqx5yp4=q0x6*dw772c-14^0y8wj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False 
 
-ALLOWED_HOSTS = [
-    'studentportal-uamg.onrender.com',
-    '127.0.0.1',
-    'localhost'
-]
+ALLOWED_HOSTS = ['*']
 
 
 
@@ -61,7 +57,7 @@ ROOT_URLCONF = 'studentportal.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
