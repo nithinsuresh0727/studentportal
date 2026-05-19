@@ -5,14 +5,14 @@ from django.http import HttpResponse
 import csv
 
 
-# REGISTER VIEW
+# REGISTER
 def register_view(request):
 
     if request.method == 'POST':
 
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
         User.objects.create_user(
             username=username,
@@ -25,14 +25,14 @@ def register_view(request):
     return render(request, 'accounts/register.html')
 
 
-# LOGIN VIEW
+# LOGIN
 def login_view(request):
 
     if request.method == 'POST':
 
-        username = request.POST['username']
-        email = request.POST['email']
-        password = request.POST['password']
+        username = request.POST.get('username')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
         try:
 
@@ -48,7 +48,9 @@ def login_view(request):
             )
 
             if user is not None:
+
                 login(request, user)
+
                 return redirect('dashboard')
 
         except User.DoesNotExist:
@@ -57,27 +59,32 @@ def login_view(request):
     return render(request, 'accounts/login.html')
 
 
-# DASHBOARD VIEW
+# DASHBOARD
 def dashboard_view(request):
 
     if request.method == 'POST':
 
-        student_name = request.POST['student_name']
+        student_name = request.POST.get('student_name')
 
         response = HttpResponse(content_type='text/csv')
+
         response['Content-Disposition'] = 'attachment; filename="student.csv"'
 
         writer = csv.writer(response)
 
         writer.writerow(['Student Name', 'User Email'])
-        writer.writerow([student_name, request.user.email])
+
+        writer.writerow([
+            student_name,
+            request.user.email
+        ])
 
         return response
 
     return render(request, 'accounts/dashboard.html')
 
 
-# LOGOUT VIEW
+# LOGOUT
 def logout_view(request):
 
     logout(request)

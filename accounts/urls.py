@@ -1,5 +1,11 @@
 from django.urls import path
-from .views import register_view, login_view, dashboard_view, logout_view
+
+from .views import (
+    register_view,
+    login_view,
+    dashboard_view,
+    logout_view
+)
 
 urlpatterns = [
 
