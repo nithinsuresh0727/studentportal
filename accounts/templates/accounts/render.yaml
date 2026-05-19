@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: studentportal
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn studentportal.wsgi:application"
