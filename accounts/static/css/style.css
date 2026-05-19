@@ -1,0 +1,19 @@
+body {
+    font-family: Arial;
+}
+
+.bg-dark {
+    background-color: #1e1e2f;
+}
+
+.bg-info {
+    background-color: #4e73df;
+}
+
+.bg-warning {
+    background-color: #f6c23e;
+}
+
+.card {
+    border-radius: 15px;
+}
