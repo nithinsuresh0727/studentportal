@@ -23,9 +23,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v3mfmk490129g+h75fp6_ihqx5yp4=q0x6*dw772c-14^0y8wj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'studentportal-uamg.onrender.com',
+    '127.0.0.1',
+    'localhost'
+]
+
 
 
 # Application definition
