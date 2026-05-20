@@ -6,7 +6,11 @@ SECRET_KEY = 'django-insecure-12345-change-me'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '127.0.0.1',
+    'localhost',
+    'studentportal-uamg.onrender.com'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
